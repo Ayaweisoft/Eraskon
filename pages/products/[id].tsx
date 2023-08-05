@@ -11,6 +11,7 @@ import Button from '@/components/Button'
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import { info } from 'console'
+import ReactToPdf from 'react-to-pdf'
 
 const initialState: IProduct = {
   _id: null,
@@ -51,6 +52,7 @@ const Product = () => {
     }
     return { ...state, [action.type]: action.payload }
   }, initialFeedbackState)
+  const ref = React.useRef(null)
 
   const [product, setProduct] = useState<IProduct>(initialState)
 
@@ -138,63 +140,70 @@ const Product = () => {
       <Header />
       {isLoading && <Loader modalOpen={isLoading} />}
       <main className='min-h-screen pt-24 my-8'>
-        <div className="flex flex-col my-4 gap-4 px-4 md:px-40 justify-center">
-          <div className="flex justify-center items-center">
-            <img src={product?.image} className='w-[15rem] h-[15rem]' alt="" />
-          </div>
-          <h2 className='font-extrabold  text-blue text-3xl'>{product?.name}</h2>
-          <div className="flex">
-            <p className='' dangerouslySetInnerHTML={{ __html: product?.description }}></p>
-          </div>
-          <div className="flex flex-col gap-1">
-            <h2 className="font-bold text-xl text-blue-light">Performant Features:</h2>
-            <div className='' dangerouslySetInnerHTML={{ __html: product?.performantFeature }} ></div>
-          </div>
-        </div>
-        <div className="flex flex-col py-4 gap-6 bg-blue text-white px-4 md:px-40">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-            <div className="flex md:w-2/5">
-              <img src={product?.testResultsImage} className='w-[10rem] h-[10rem]' alt="" />
+        <div ref={ref} className="">
+          <div className="flex flex-col justify-center gap-4 px-4 my-4 md:px-40">
+            <div className="flex items-center justify-center">
+              <img src={product?.image} className='w-[15rem] h-[15rem]' alt="" />
             </div>
-            <div className="flex flex-col gap-4 w-full h-full">
-              <div className="flex justify-between items-end w-full">
-                <h2 className="font-bold text-xl md:text-2xl">{product?.name}</h2>
-                <div className="flex gap-2">
-                  {
-                    product?.sizes.map((size, index) => (
-                      <div key={index} className="flex items-center justify-center font-bold h-12 px-3 rounded-md text-white bg-blue-light">
-                        {size} L
-                      </div>
-                    ))
-                  }
+            <h2 className='text-3xl font-extrabold text-blue'>{product?.name}</h2>
+            <div className="flex">
+              <p className='' dangerouslySetInnerHTML={{ __html: product?.description }}></p>
+            </div>
+            <div className="flex flex-col gap-1">
+              <h2 className="text-xl font-bold text-blue-light">Performant Features:</h2>
+              <div className='' dangerouslySetInnerHTML={{ __html: product?.performantFeature }} ></div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-6 px-4 py-4 text-white bg-blue md:px-40">
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
+              <div className="flex md:w-2/5">
+                <img src={product?.testResultsImage} className='w-[10rem] h-[10rem]' alt="" />
+              </div>
+              <div className="flex flex-col w-full h-full gap-4">
+                <div className="flex items-end justify-between w-full">
+                  <h2 className="text-xl font-bold md:text-2xl">{product?.name}</h2>
+                  <div className="flex gap-2">
+                    {
+                      product?.sizes.map((size, index) => (
+                        <div key={index} className="flex items-center justify-center h-12 px-3 font-bold text-white rounded-md bg-blue-light">
+                          {size} L
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+                <div className="flex w-full">
+                  <Table<IProductTest> data={product?.testResults} columns={columns} isSearch={false} className={''} />
                 </div>
               </div>
-              <div className="flex w-full">
-                <Table<IProductTest> data={product?.testResults} columns={columns} isSearch={false} className={''} />
+            </div>
+            <div className="flex flex-col gap-2 md:flex-row text-gold">
+              <div className="">Storage:</div>
+              <div className='text-white'>
+                {product?.storage}
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-2 text-gold">
-            <div className="">Storage:</div>
-            <div className='text-white'>
-              {product?.storage}
-            </div>
-          </div>
         </div>
-        <div className="flex w-full flex-col p-6">
+        <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+          {({toPdf}: {toPdf: any}) => (
+            <button onClick={toPdf}>Generate pdf</button>
+          )}
+        </ReactToPdf>
+        <div className="flex flex-col w-full p-6">
           <h2 className='text-2xl font-bold text-blue'>Place a Request</h2>
           <form onSubmit={submitFeedback} className='w-full md:w-3/5'>
             <div className="flex flex-col gap-1">
               <label htmlFor="name" className="text-black/70">Name</label>
-              <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={feedback?.name} type="text" name="name" id="name" className="border border-black/20 rounded-md p-2" />
+              <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={feedback?.name} type="text" name="name" id="name" className="p-2 border rounded-md border-black/20" />
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="email" className="text-black/70">Email</label>
-              <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={feedback?.email} type="email" name="email" id="email" className="border border-black/20 rounded-md p-2" />
+              <input required onChange={(e) => dispatch({ type: 'email', payload: e.target.value })} value={feedback?.email} type="email" name="email" id="email" className="p-2 border rounded-md border-black/20" />
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="number" className="text-black/70">Phone</label>
-              <input onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={feedback?.number} type="number" name="number" id="number" className="border border-black/20 rounded-md p-2" />
+              <input onChange={(e) => dispatch({ type: 'number', payload: e.target.value })} value={feedback?.number} type="number" name="number" id="number" className="p-2 border rounded-md border-black/20" />
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="info" className="text-black/70">Select type</label>
@@ -205,11 +214,11 @@ const Product = () => {
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="info" className="text-black/70">Additional Information</label>
-              <textarea required onChange={(e) => dispatch({ type: 'info', payload: e.target.value })} value={feedback?.info} name="info" id="info" className="border border-black/20 rounded-md p-2" />
+              <textarea required onChange={(e) => dispatch({ type: 'info', payload: e.target.value })} value={feedback?.info} name="info" id="info" className="p-2 border rounded-md border-black/20" />
             </div>
             <div className="flex items-center gap-4 mt-8">
-              <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Submit Request</Button>
-              <button onClick={() => dispatch({ type: 'reset' })} className="text-black/60 px-4 sm:px-6 py-2 rounded-md text-sm">Clear</button>
+              <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Submit Request</Button>
+              <button onClick={() => dispatch({ type: 'reset' })} className="px-4 py-2 text-sm rounded-md text-black/60 sm:px-6">Clear</button>
             </div>
           </form>
         </div>
