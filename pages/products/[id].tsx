@@ -11,6 +11,7 @@ import Button from '@/components/Button'
 import usePost from '@/hooks/usePost';
 import { toast } from 'react-toastify';
 import { info } from 'console'
+import jsPDF from 'jspdf';
 import ReactToPdf from 'react-to-pdf'
 
 const initialState: IProduct = {
@@ -52,7 +53,22 @@ const Product = () => {
     }
     return { ...state, [action.type]: action.payload }
   }, initialFeedbackState)
-  const ref = React.useRef(null)
+  const ref = React.useRef(null as any)
+  const handleGeneratePdf = () => {
+		const doc = new jsPDF({
+			format: 'a4',
+			unit: 'px',
+		});
+
+		// Adding the fonts.
+		doc.setFont('Inter-Regular', 'normal');
+
+		doc.html(ref.current, {
+			async callback(doc) {
+				await doc.save('document');
+			},
+		});
+	};
 
   const [product, setProduct] = useState<IProduct>(initialState)
 
@@ -190,6 +206,7 @@ const Product = () => {
             <button onClick={toPdf}>Generate pdf</button>
           )}
         </ReactToPdf>
+        <Button onClick={handleGeneratePdf} children={"generate pdf 2"} />
         <div className="flex flex-col w-full p-6">
           <h2 className='text-2xl font-bold text-blue'>Place a Request</h2>
           <form onSubmit={submitFeedback} className='w-full md:w-3/5'>
