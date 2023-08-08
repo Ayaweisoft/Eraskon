@@ -70,6 +70,12 @@ const Product = () => {
 		});
 	};
 
+  const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [4,2]
+  };
+
   const [product, setProduct] = useState<IProduct>(initialState)
 
   const router = useRouter()
@@ -201,7 +207,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+        <ReactToPdf targetRef={ref} filename="div-blue.pdf" options={options} x={.5} y={.5} scale={0.8}>
           {({toPdf}: {toPdf: any}) => (
             <button onClick={toPdf}>Generate pdf</button>
           )}
