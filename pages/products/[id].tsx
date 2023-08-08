@@ -212,7 +212,7 @@ const Product = () => {
             <button onClick={toPdf}>Generate pdf</button>
           )}
         </ReactToPdf>
-        <Button onClick={handleGeneratePdf} children={"generate pdf 2"} />
+        <Button onClick={handleGeneratePdf}>generate pdf 2</Button>
         <div className="flex flex-col w-full p-6">
           <h2 className='text-2xl font-bold text-blue'>Place a Request</h2>
           <form onSubmit={submitFeedback} className='w-full md:w-3/5'>
