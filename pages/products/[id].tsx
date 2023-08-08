@@ -58,6 +58,7 @@ const Product = () => {
 		const doc = new jsPDF({
 			format: 'a4',
 			unit: 'px',
+      orientation: 'landscape',
 		});
 
 		// Adding the fonts.
@@ -73,7 +74,7 @@ const Product = () => {
   const options = {
     orientation: 'landscape',
     unit: 'in',
-    format: [4,2]
+    format: 'a4'
   };
 
   const [product, setProduct] = useState<IProduct>(initialState)
