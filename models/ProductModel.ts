@@ -8,6 +8,10 @@ const ProductSchema: Schema = new Schema<IProduct>({
     // required: true,
     unique: true,
   },
+  pdf: {
+    type: String,
+    // required: true,
+  },
   name: {
     type: String,
     // required: true,

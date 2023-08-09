@@ -32,6 +32,7 @@ export interface IProductTest {
 export interface IProduct {
     _id?: mongoose.ObjectId | null;
     image: string;
+    pdf: string;
     name: string;
     description: string;
     performantFeature: string;
@@ -85,7 +86,7 @@ export interface IAboutUs {
     first_section: {
         image: string,
         text: string,
-      },
+    },
     second_section: {
         image: string,
         text: string,

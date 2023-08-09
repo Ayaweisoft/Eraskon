@@ -19,6 +19,7 @@ const initialState: IProduct = {
   name: '',
   description: '',
   image: '',
+  pdf: '',
   performantFeature: '',
   testResults: [],
   testResultsImage: '',
@@ -54,28 +55,16 @@ const Product = () => {
     return { ...state, [action.type]: action.payload }
   }, initialFeedbackState)
   const ref = React.useRef(null as any)
-  const handleGeneratePdf = () => {
-		const doc = new jsPDF({
-			format: 'a4',
-			unit: 'px',
-      orientation: 'landscape',
-		});
 
-		// Adding the fonts.
-		doc.setFont('Inter-Regular', 'normal');
-
-		doc.html(ref.current, {
-			async callback(doc) {
-				await doc.save('document');
-			},
-		});
-	};
-
-  const options = {
-    orientation: 'landscape',
-    unit: 'in',
-    format: 'a4'
-  };
+  const downloadSheet = () => {
+    // Setting various property values
+    let alink = document.createElement('a');
+    alink.href = product.pdf;
+    const currentDate = new Date();
+    const timestamp = currentDate.getTime()
+    alink.download = 'Datasheet' + timestamp + '';
+    alink.click();
+  }
 
   const [product, setProduct] = useState<IProduct>(initialState)
 
@@ -86,18 +75,18 @@ const Product = () => {
     api: `/feedback`,
     method: 'POST',
     onSuccess: () => {
-        toast('Feedback Submitted Successfully')
-        dispatch({ type: 'reset' })
-        router.push(`/products/${id}`)
+      toast('Feedback Submitted Successfully')
+      dispatch({ type: 'reset' })
+      router.push(`/products/${id}`)
     }
-})
+  })
 
   const submitFeedback = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // dispatch({ type: 'description', payload: editorRef.current?.getContent() })
     console.log({ ...feedback, productId: id })
     post({ ...feedback, productId: id })
-}
+  }
 
   const columns = [
     {
@@ -208,12 +197,9 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <ReactToPdf targetRef={ref} filename="div-blue.pdf" options={options} x={.5} y={.5} scale={0.8}>
-          {({toPdf}: {toPdf: any}) => (
-            <Button className='p-3 m-4 font-medium text-white rounded-lg' onClick={toPdf}>Generate pdf</Button>
-          )}
-        </ReactToPdf>
-        <Button onClick={handleGeneratePdf}>generate pdf 2</Button>
+        <Button className='p-3 m-4 font-medium text-white rounded-lg' onClick={downloadSheet}>
+          Download Datasheet
+        </Button>
         <div className="flex flex-col w-full p-6">
           <h2 className='text-2xl font-bold text-blue'>Place a Request</h2>
           <form onSubmit={submitFeedback} className='w-full md:w-3/5'>

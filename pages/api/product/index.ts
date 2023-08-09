@@ -34,6 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const data: IProduct = {
         image: req.body?.image,
+        pdf: req.body?.pdf,
         name: req.body?.name,
         description: req.body?.description,
         performantFeature: req.body?.performantFeature,
