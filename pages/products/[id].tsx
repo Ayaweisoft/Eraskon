@@ -60,9 +60,11 @@ const Product = () => {
     // Setting various property values
     let alink = document.createElement('a');
     alink.href = product.pdf;
+    // download on click
     const currentDate = new Date();
     const timestamp = currentDate.getTime()
-    alink.download = 'Datasheet' + timestamp + '';
+    alink.setAttribute('download', 'Datasheet' + timestamp + '')
+    // alink.download = 'Datasheet' + timestamp + '';
     alink.click();
   }
 
@@ -197,12 +199,14 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <Button className='p-3 m-4 font-medium text-white rounded-lg' onClick={downloadSheet}>
-          Download Datasheet
-        </Button>
-        <div className="flex flex-col w-full p-6">
-          <h2 className='text-2xl font-bold text-blue'>Place a Request</h2>
-          <form onSubmit={submitFeedback} className='w-full md:w-3/5'>
+        <div className="flex justify-center">
+          <Button className='p-3 m-4 mx-auto font-medium text-white rounded-lg' onClick={downloadSheet}>
+            Download Datasheet
+          </Button>
+        </div>
+        <div className="flex flex-col justify-center w-full gap-4 p-6 my-4 md:px-40">
+          <h2 className='text-2xl font-bold text-center text-blue'>Place a Request</h2>
+          <form onSubmit={submitFeedback} className='w-full mx-auto md:w-3/5'>
             <div className="flex flex-col gap-1">
               <label htmlFor="name" className="text-black/70">Name</label>
               <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={feedback?.name} type="text" name="name" id="name" className="p-2 border rounded-md border-black/20" />

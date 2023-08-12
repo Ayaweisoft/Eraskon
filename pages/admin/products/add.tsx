@@ -135,7 +135,7 @@ const AddProduct = () => {
                 <meta name="description" content="Eraskon Nigeria Limited (ENL) is an indigenous Security and Logistics services provider in the Oil & Gas and Marine sectors of the Nigerian economy" />
                 <link rel="icon" href="/faviconimg.png" />
             </Head>
-            {(loading || uploadingImage) && <Loader modalOpen={true} />}
+            {(loading || uploadingImage || uploadingPdf || uploadingTestResultsImage) && <Loader modalOpen={true} />}
             <div className='h-full p-4 py-12 overflow-y-auto sm:px-12'>
                 <div className="flex items-center justify-between gap-4 mb-16">
                     <h1 className='text-3xl text-black/70 font-argentinum'>Add Project</h1>

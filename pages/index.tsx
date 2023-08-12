@@ -174,15 +174,15 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
               <use href="#SvgjsPath1219" x="690" y="570" stroke="rgba(255, 222, 90, 1)"></use>
             </symbol>
           </svg>
-          <div className="absolute z-10 flex w-4/5 gap-4 -translate-x-1/2 -translate-y-1/2  h-4/5 top-1/2 left-1/2">
+          <div className="absolute z-10 flex w-4/5 gap-4 -translate-x-1/2 -translate-y-1/2 h-4/5 top-1/2 left-1/2">
             <div className="flex w-full">
-              <img src={cms?.whoWeAre?.image} alt="" className="relative object-cover w-full h-full  opacity-10" />
+              <img src={cms?.whoWeAre?.image} alt="" className="relative object-cover w-full h-full opacity-10" />
             </div>
             <div className="flex w-full">
-              <img src={cms?.whatWeDo?.image} alt="" className="relative object-cover w-full h-full  opacity-10" />
+              <img src={cms?.whatWeDo?.image} alt="" className="relative object-cover w-full h-full opacity-10" />
             </div>
             <div className="flex w-full">
-              <img src={cms?.whoWeAre?.image} alt="" className="relative object-cover w-full h-full  opacity-10" />
+              <img src={cms?.whoWeAre?.image} alt="" className="relative object-cover w-full h-full opacity-10" />
             </div>
           </div>
           <div className="z-20 flex flex-col items-center justify-center order-2 gap-4 lg:order-1">
