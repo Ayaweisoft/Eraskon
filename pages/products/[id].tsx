@@ -206,7 +206,7 @@ const Product = () => {
         </div>
         <div className="flex flex-col justify-center w-full gap-4 p-6 my-4 md:px-40">
           <h2 className='text-2xl font-bold text-center text-blue'>Place a Request</h2>
-          <form onSubmit={submitFeedback} className='w-full mx-auto md:w-3/5'>
+          <form onSubmit={submitFeedback} className='flex flex-col w-full gap-3 mx-auto md:w-3/5'>
             <div className="flex flex-col gap-1">
               <label htmlFor="name" className="text-black/70">Name</label>
               <input required onChange={(e) => dispatch({ type: 'name', payload: e.target.value })} value={feedback?.name} type="text" name="name" id="name" className="p-2 border rounded-md border-black/20" />
