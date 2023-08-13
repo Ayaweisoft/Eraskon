@@ -108,3 +108,25 @@
     animation-play-state: paused;
   }
 }
+
+
+
+.carousel-slide {
+  animation: slideOut 50s infinite forwards linear;
+}
+.carousel-slide2 {
+  animation: slideOut2 50s infinite forwards linear;
+}
+
+.active {
+  opacity: 1;
+}
+
+.carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
