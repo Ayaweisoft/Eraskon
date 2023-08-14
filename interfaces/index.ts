@@ -52,6 +52,13 @@ export interface IFeedback {
     type: string;
 }
 
+export interface IContactUs {
+    name: string;
+    email: string;
+    message: string;
+}
+
+
 export interface INews {
     title: string;
     snippet: string;

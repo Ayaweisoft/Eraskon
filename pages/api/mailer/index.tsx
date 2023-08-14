@@ -62,7 +62,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         <p style="height: 1px; background-color: #00000025;"></p>
                         <div>
                             <p style="font-size: 12px; margin-top: 30px; margin-bottom: 30px; color: #444444; max-width: 410px; line-height: 25px; letter-spacing: 0.02em;">
-                                Talk to us anytime! Call +2347001020300 or email info@bbscholarship.org © 2023 Eraskon, Inc. All rights reserved.
+                                Talk to us anytime! Call +234(0)9062829067 or email eraskoncustomercare@eraskon.com © 2023 Eraskon, Inc. All rights reserved.
                             </p>
                         </div>
                     </div>

@@ -272,17 +272,17 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px]">
+            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px] max-w-md">
               <Image src={MissionImg} alt="image" className="object-cover w-24 h-24" />
               <h3 className="text-2xl font-bld text-lue">Mission</h3>
               <p className="text-white/80 text-g">At Eraskon Nigeria Limited, we&lsquo;re committed to delivering top-quality industrial solutions while upholding safety and excellence. Our mission is to enhance operational efficiency for our clients, contribute positively to the industries we serve, and drive sustainable growth in Nigeria and sub-Saharan Afric</p>
             </div>
-            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px]">
+            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px] max-w-md">
               <Image src={VisionImg} alt="image" className="object-cover w-24 h-24" />
               <h3 className="text-2xl font-bld text-lue">Vision</h3>
               <p className="text-white/80 text-g">Our vision is to become a leading provider of innovative energy and industrial solutions in Nigeria and sub-Saharan Africa, driving progress across multiple sectors. We aspire to be a catalyst for economic growth, guided by excellence, integrity, and partnership.</p>
             </div>
-            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px]">
+            <div className="flex flex-col items-center ustify-center flex-1 gap-4 min-w-[300px] max-w-md">
               <Image src={ValueImg} alt="image" className="object-cover w-24 h-24" />
               <h3 className="text-2xl font-bld text-lue">Values</h3>
               <p className="text-white/80 text-g">Our core values are the bedrock of Eraskon Nigeria Limited. We embody these principles in every facet of our operations, fostering a culture of excellence, integrity, and collaboration</p>
