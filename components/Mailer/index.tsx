@@ -7,11 +7,11 @@ import Loader from '../Loader';
 import { useRouter } from 'next/router';
 
 
-interface IProps {
-  data: IFeedback | null
+interface IProps<T = any> {
+  data: T | null
 }
 
-const EmailForm = ({data: info}: IProps) => {
+const EmailForm = <T extends any>({data: info}: IProps) => {
   const [sender, setSender] = useState('');
   const [recipient, setRecipient] = useState('');
   const [subject, setSubject] = useState('');
@@ -52,7 +52,7 @@ const EmailForm = ({data: info}: IProps) => {
         {/* <input type="email" placeholder="Sender" value={sender} onChange={(e) => setSender(e.target.value)} /> */}
         <div className="flex flex-col gap-1">
             <label htmlFor="name" className="text-black/70">Recipient:</label>
-          <input readOnly type="email"  className="border border-black/20 rounded-md p-2" placeholder="" value={info?.email} onChange={(e) => setRecipient(e.target.value)} />
+          <input readOnly type="email"  className="p-2 border rounded-md border-black/20" placeholder="" value={info?.email} onChange={(e) => setRecipient(e.target.value)} />
         </div>
         {/* <div className="flex flex-col gap-1">
             <label htmlFor="name" className="text-black/70">Subject:</label>
@@ -60,9 +60,9 @@ const EmailForm = ({data: info}: IProps) => {
         </div> */}
         <div className="flex flex-col gap-1">
             <label htmlFor="name" className="text-black/70">Message:</label>
-         <textarea className="border border-black/20 rounded-md p-2" rows={4} placeholder="" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+         <textarea className="p-2 border rounded-md border-black/20" rows={4} placeholder="" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
         </div>
-        <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-md text-sm">Send Mail</Button>
+        <Button type='submit' className="px-4 py-2 text-sm text-white rounded-md sm:px-6">Send Mail</Button>
       </form>
     </div>
   );

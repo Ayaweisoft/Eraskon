@@ -20,8 +20,9 @@ const Header = () => {
         <nav className="items-center hidden gap-2 text-white lg:flex lg:gap-4 whitespace-nowrap">
           <ul className='flex flex-col items-center gap-2 text-sm font-medium lg:flex-row text-dark-light lg:gap-4'>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
-            <li><Link href="#about" className={`pb-1.5 px-1 font-medium`}>About Us</Link></li>
+            <li><a href="#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
             <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Products</Link></li>
+            <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             {/* <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Companies</Link></li> */}
             {/* <li className='relative cursor-pointer bg-blue group'>
               <span className={`pb-1.5 px-1 font-medium`}>Login</span>
@@ -34,11 +35,28 @@ const Header = () => {
               </div>
             </li> */}
           </ul>
-          <a target='_blank' href={`https://www.google.com`}>
-              <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-blue font-semibold bg-gold rounded-full`}>
-                Our Companies
-              </Button>
-          </a>
+          <div className='relative group'>
+            <Button className={`py-2 pb-2.5 px-6 text-xs text-blue font-semibold bg-gold rounded-full`}>
+              Our Companies
+            </Button>
+            <div className='absolute flex-col hidden gap-2 -translate-x-1/2 shadow-md top-8 left-1/2 hover:underline group-hover:flex bg-blue-light'>
+              <a target='_blank' href={`https://www.eraskorp.com/`} className='py-1'>
+                <span className={`px-6 text-xs font-medium`}>
+                  Eraskorp 
+                </span>
+              </a> 
+              <a target='_blank' href={`https://eraskoenergy.com/`} className=''>
+                <span className={`px-6 text-xs font-medium`}>
+                  Erasko Energy
+                </span>
+              </a> 
+              <a target='_blank' href={`https://eraskoenergy.com/`} className='pb-2'>
+                <span className={`px-6 text-xs font-medium`}>
+                  FPS ltd
+                </span>
+              </a> 
+            </div>
+          </div>
           {/* <a href={`/register`}>
               <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-blue font-semibold bg-gold rounded-full`}>
                 Sign Up
@@ -50,9 +68,10 @@ const Header = () => {
         <nav className="flex flex-col gap-16 p-4 px-8 pt-20 mb-8 lg:hidden">
           <ul className='flex flex-col text-sm font-medium text-dark-light gap-7 md:gap-4 lg:gap-7'>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
-            <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Product</Link></li>
-
-            <li className='relative bg-white cursor-pointer group'>
+            <li><a href="#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
+            <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Products</Link></li>
+            <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
+            {/* <li className='relative bg-white cursor-pointer group'>
               <span className={`pb-1.5 px-1 font-medium`}>Login</span>
               <div className='absolute left-0 flex-col hidden gap-2 bg-white shadow-md top-6 group-hover:flex text-blue'>
                 <Link href={`/login`} className='pb-2'>
@@ -61,13 +80,35 @@ const Header = () => {
                   </span> 
                 </Link>
               </div>
-            </li>
+            </li> */}
           </ul>
-          <a href={`/register`}>
+          {/* <a href={`/register`}>
             <Button className={`py-2 pb-2.5 px-6 text-xs font-medium text-white grad-to-right rounded-full`}>
               Sign Up
             </Button>
-          </a>
+          </a> */}
+          <div className='relative group'>
+            <Button className={`py-2 pb-2.5 px-6 text-xs text-blue font-semibold bg-gold rounded-full`}>
+              Our Companies
+            </Button>
+            <div className='absolute flex-col hidden gap-2 text-white -translate-x-1/2 shadow-md top-8 left-1/2 hover:underline group-hover:flex bg-blue-light'>
+              <a target='_blank' href={`https://www.eraskorp.com/`} className='py-1'>
+                <span className={`px-6 text-xs font-medium`}>
+                  Eraskorp 
+                </span>
+              </a> 
+              <a target='_blank' href={`https://eraskoenergy.com/`} className=''>
+                <span className={`px-6 text-xs font-medium`}>
+                  Erasko Energy
+                </span>
+              </a> 
+              <a target='_blank' href={`https://eraskoenergy.com/`} className='pb-2'>
+                <span className={`px-6 text-xs font-medium`}>
+                  FPS ltd
+                </span>
+              </a> 
+            </div>
+          </div>
         </nav>
       </div>
       { isOpen ? 
