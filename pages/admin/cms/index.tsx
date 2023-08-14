@@ -124,76 +124,69 @@ const EditCms = () => {
                 <link rel="icon" href="/faviconimg.png" />
             </Head>
             {(loading || posting || uploadingImage) && <Loader modalOpen={true} />}
-            <div className='p-4 py-12 sm:px-12 h-full overflow-y-auto'>
+            <div className='h-full p-4 py-12 overflow-y-auto sm:px-12'>
 
-                <section className="pb-10 border-b">
-                    <h1 className='text-2xl text-black/70 font-argentinum mb-6'>Hero Section</h1>
+                {/* <section className="pb-10 border-b">
+                    <h1 className='mb-6 text-2xl text-black/70 font-argentinum'>Hero Section</h1>
                     <form className="flex flex-col gap-4" onSubmit={updateHero}>
                         <div className="flex flex-col gap-1">
                             <span className="text-black/70">Upload Hero Images</span>
                             <div className="flex">    
-                                {/* {cms?.whoWeAre?.image &&
-
-                                    cms?.whoWeAre?.image?.map((image: any, index: number) => (
-                                        <Image width={100} height={100} src={image} alt="" className="h-24 w-24 bg-gray-100 object-cover z-10 relative" />
-                                    ))       
-                                } */}
                             </div>
                             <input type='file' name='whoWeAreImage' id='whoWeAreImage' className='' onChange={(e) => uploadWhoWeAreImage(e.target.files![0])} />
                             {uploadingWhoWeAreImage && <p>Uploading Image {whoWeAreProgress}%</p>}
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="header" className="text-black/70">Header</label>
-                            <input minLength={10} maxLength={45} required onChange={(e) => dispatch({ type: 'hero', payload: { ...cms.hero, header: e.target.value } })} value={cms?.hero?.header} type="text" name="header" id="header" className="border border-black/20 rounded-md p-2" />
+                            <input minLength={10} maxLength={45} required onChange={(e) => dispatch({ type: 'hero', payload: { ...cms.hero, header: e.target.value } })} value={cms?.hero?.header} type="text" name="header" id="header" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="text" className="text-black/70">Text</label>
-                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'hero', payload: { ...cms.hero, text: e.target.value } })} value={cms?.hero?.text} name="text" id="text" className="border border-black/20 rounded-md p-2" />
-                            {/* <input minLength={200} maxLength={300} required onChange={(e) => dispatch({ type: 'hero', payload: {...cms.hero, text: e.target.value } })} value={cms?.hero?.text} type="text" name="text" id="text" className="border border-black/20 rounded-md p-2" /> */}
+                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'hero', payload: { ...cms.hero, text: e.target.value } })} value={cms?.hero?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Update</Button>
+                            <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Update</Button>
                         </div>
                     </form>
-                </section>
+                </section> */}
                 <section className="py-10 border-b">
-                    <h1 className='text-2xl text-black/70 font-argentinum mb-6'>Who We Are Section</h1>
+                    <h1 className='mb-6 text-2xl text-black/70 font-argentinum'>Who We Are Section</h1>
                     <form className="flex flex-col gap-4" onSubmit={updateWhoWeAre}>
                         <div className="flex flex-col gap-1">
                             <span className="text-black/70">Upload Who We Are Image</span>
                             {cms?.whoWeAre?.image &&
-                                <Image width={100} height={100} src={cms?.whoWeAre?.image} alt="" className="h-24 w-24 bg-gray-100 object-cover z-10 relative" />
+                                <Image width={100} height={100} src={cms?.whoWeAre?.image} alt="" className="relative z-10 object-cover w-24 h-24 bg-gray-100" />
                             }
                             <input type='file' name='whoWeAreImage' id='whoWeAreImage' className='' onChange={(e) => uploadWhoWeAreImage(e.target.files![0])} />
                             {uploadingWhoWeAreImage && <p>Uploading Image {whoWeAreProgress}%</p>}
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="text" className="text-black/70">Text</label>
-                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whoWeAre', payload: { ...cms.whoWeAre, text: e.target.value } })} value={cms?.whoWeAre?.text} name="text" id="text" className="border border-black/20 rounded-md p-2" />
+                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whoWeAre', payload: { ...cms.whoWeAre, text: e.target.value } })} value={cms?.whoWeAre?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Update</Button>
+                            <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Update</Button>
                         </div>
                     </form>
                 </section>
 
                 <section className="py-10 border-b">
-                    <h1 className='text-2xl text-black/70 font-argentinum mb-6'>What We Do Section</h1>
+                    <h1 className='mb-6 text-2xl text-black/70 font-argentinum'>What We Do Section</h1>
                     <form className="flex flex-col gap-4" onSubmit={updateWhatWeDo}>
                         <div className="flex flex-col gap-1">
                             <span className="text-black/70">Upload What We Do Image</span>
                             {cms?.whatWeDo.image &&
-                                <Image width={100} height={100} src={cms?.whatWeDo?.image} alt="" className="h-24 w-24 bg-gray-100 object-cover z-10 relative" />
+                                <Image width={100} height={100} src={cms?.whatWeDo?.image} alt="" className="relative z-10 object-cover w-24 h-24 bg-gray-100" />
                             }
                             <input type='file' name='whatWeDoImage' id='whatWeDoImage' className='' onChange={(e) => uploadWhatWeDoImage(e.target.files![0])} />
                             {uploadingWhatWeDoImage && <p>Uploading Image {whatWeDoProgress}%</p>}
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="text" className="text-black/70">Text</label>
-                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whatWeDo', payload: { ...cms.whatWeDo, text: e.target.value } })} value={cms?.whatWeDo?.text} name="text" id="text" className="border border-black/20 rounded-md p-2" />
+                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whatWeDo', payload: { ...cms.whatWeDo, text: e.target.value } })} value={cms?.whatWeDo?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex items-center gap-4">
-                            <Button type='submit' className="text-white px-4 sm:px-6 py-2 rounded-xl text-sm">Update</Button>
+                            <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Update</Button>
                         </div>
                     </form>
                 </section>

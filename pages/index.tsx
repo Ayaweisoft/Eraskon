@@ -26,6 +26,8 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
     router.push(`/products/${id}`)
   }
 
+  console.log({cms, products })
+
   return (
     <div>
       <Head>
