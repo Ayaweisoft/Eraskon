@@ -20,7 +20,7 @@ const Header = () => {
         <nav className="items-center hidden gap-2 text-white lg:flex lg:gap-4 whitespace-nowrap">
           <ul className='flex flex-col items-center gap-2 text-sm font-medium lg:flex-row text-dark-light lg:gap-4'>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
-            <li><a href="#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
+            <li><a href="/#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
             <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Products</Link></li>
             <li className='relative group'>
               <span className={`pb-1.5 px-1 font-medium`}>Our Companies</span>
@@ -65,13 +65,13 @@ const Header = () => {
         <nav className="flex flex-col gap-16 p-4 px-4 pt-20 pl-8 mb-8 lg:hidden">
           <ul className='flex flex-col text-sm font-medium text-dark-light gap-7 md:gap-4 lg:gap-7'>
             <li><Link href="/" className={`pb-1.5 px-1 font-medium`}>Home</Link></li>
-            <li><a href="#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
+            <li><a href="/#about" className={`pb-1.5 px-1 font-medium`}>About Us</a></li>
             <li><Link href="/products" className={`pb-1.5 px-1 font-medium`}>Our Products</Link></li>
             {/* <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li>
             <li><Link href="/contact-us" className={`pb-1.5 px-1 font-medium`}>Contact Us</Link></li> */}
             <li className='relative group'>
               <span className={`pb-1.5 px-1 font-medium`}>Our Companies</span>
-              <div className='absolute flex-col hidden gap-2 text-white -translate-x-1/2 shadow-md top-8 left-1/2 hover:underline group-hover:flex bg-blue-light'>
+              <div className='absolute left-0 flex-col hidden gap-2 text-white shadow-md top-6 hover:underline group-hover:flex bg-blue-light'>
                 <a target='_blank' href={`https://www.eraskorp.com/`} className='py-1'>
                   <span className={`px-6 text-xs font-medium`}>
                     Eraskorp 

@@ -31,7 +31,7 @@ const carouselData = [
       text: 'Explore our range of engine coolants, aerosols, production chemicals, and bio-degradable products, designed to meet diverse industry needs.',
   },
   {
-      id: 3,
+      id: 4,
       heroImg: Bg4,
       title: 'Packaging Solutions for Your Success',
       text: 'We offer plastic containers for engine oils, homecare products, and packaging solutions, delivering your finished lubricants safely and professionally.',
@@ -226,7 +226,7 @@ const Hero = () => {
           </svg> */}
       {carouselData.map((item, index) => (
         <>
-          <div key={index} ref={carouselRef} className="absolute top-0 left-0 z-0 w-full h-full carousel">
+          <div key={item.id} ref={carouselRef} className="absolute top-0 left-0 z-0 w-full h-full carousel">
             <div ref={(el: HTMLDivElement) => (carouselInnerRef.current[index] = el)} key={item.id} className="absolute w-full h-full carousel-item active">
               <>
               {

@@ -201,7 +201,7 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
             </Button>
           </div>
         </section> */}
-        <section className="relative flex flex-col gap-3 pt-16 pb-20 overflow-hidden section md:pt-28">
+        <section id="about" className="relative flex flex-col gap-3 pt-16 pb-20 overflow-hidden section md:pt-28">
           <svg className="absolute top-0 left-0 min-w-full rotate-180 opacity-20" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1440" height="250" preserveAspectRatio="none" viewBox="0 0 1440 250"><g mask="url(&quot;#SvgjsMask1063&quot;)" fill="none"><path d="M20 250L270 0L567 0L317 250z" fill="url(&quot;#SvgjsLinearGradient1064&quot;)"></path><path d="M258.6 250L508.6 0L759.1 0L509.1 250z" fill="url(&quot;#SvgjsLinearGradient1064&quot;)"></path><path d="M518.2 250L768.2 0L1120.7 0L870.7 250z" fill="url(&quot;#SvgjsLinearGradient1064&quot;)"></path><path d="M754.8000000000001 250L1004.8000000000001 0L1330.3000000000002 0L1080.3000000000002 250z" fill="url(&quot;#SvgjsLinearGradient1064&quot;)"></path><path d="M1421 250L1171 0L941.5 0L1191.5 250z" fill="url(&quot;#SvgjsLinearGradient1065&quot;)"></path><path d="M1190.4 250L940.4000000000001 0L896.9000000000001 0L1146.9 250z" fill="url(&quot;#SvgjsLinearGradient1065&quot;)"></path><path d="M942.8 250L692.8 0L497.79999999999995 0L747.8 250z" fill="url(&quot;#SvgjsLinearGradient1065&quot;)"></path><path d="M697.1999999999999 250L447.19999999999993 0L178.69999999999993 0L428.69999999999993 250z" fill="url(&quot;#SvgjsLinearGradient1065&quot;)"></path><path d="M1220.697497010788 250L1440 30.697497010788L1440 250z" fill="url(&quot;#SvgjsLinearGradient1064&quot;)"></path><path d="M0 250L219.302502989212 250L 0 30.697497010788z" fill="url(&quot;#SvgjsLinearGradient1065&quot;)"></path></g><defs><mask id="SvgjsMask1063"><rect width="1440" height="250" fill="#ffffff"></rect></mask><linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="SvgjsLinearGradient1064"><stop stopColor="rgba(9, 15, 59, 1)" offset="0"></stop><stop stopOpacity="0" stopColor="rgba(9, 15, 59, 1)" offset="0.66"></stop></linearGradient><linearGradient x1="100%" y1="100%" x2="0%" y2="0%" id="SvgjsLinearGradient1065"><stop stopColor="rgba(9, 15, 59, 1)" offset="0"></stop><stop stopOpacity="0" stopColor="rgba(9, 15, 59, 1)" offset="0.66"></stop></linearGradient></defs></svg>
           <h2 className="mb-4 text-3xl font-extrabold text-center text-blue md:text-5xl md:mb-12">About Us</h2>
           <div className="flex flex-col gap-6 md:gap-10 md:gap-12">
@@ -338,6 +338,27 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
             </div>
           </div>
         </section>
+        {/* <section className="pt-20 pb-20 text-center section">
+          <div className="flex flex-col items-center max-w-3xl gap-4 mx-auto text-center">
+            <h3 className="mb-3 text-3xl font-extrabold capitalize md:text-5xl">Our <br /> Ambassadors</h3>
+            <p>We are delighted to introduce our exceptional scholarship ambassadors, a group of outstanding individuals who have distinguished themselves through their remarkable achievements and unwavering commitment to excellence. Chosen from a pool of highly talented applicants, these scholars have demonstrated exceptional academic prowess, leadership abilities, and a strong dedication to their communities. </p>
+          </div>
+          <div className="flex flex-col gap-10 pt-12 md:gap-16">
+            {ambassadors?.map((ambassador, index) => (
+              <div key={index} className="flex flex-col gap-4 lg:gap-12 md:items-center lg:flex-row">
+                <div className='flex flex-col gap-4 items-center justify-center text-center lg:text-left lg:items-start flex-[1_1_0%]'>
+                <Image width={100} height={100} alt='' src={ambassador?.image} className="object-cover mx-auto rounded-full h-44 w-44 md:w-48 md:h-48 md:rounded-none md:mx-0 bg-black/10" />
+                  <div>
+                  <h4 className="text-xl font-bold">{ambassador?.name}</h4>
+                      <span className="text-sm font-extrabold text-primary">{ambassador?.title}</span>
+                  </div>
+                </div> 
+                <div className='text-[#6D6D6D] font-argentinum text-sm md:text-base md:text-left flex-[3_1_0%]' dangerouslySetInnerHTML={{ __html: ambassador?.description }}  />    
+              </div>
+            ))
+            }
+        </div>
+      </section> */}
 
         {/* <Advisory advisory={advisory} /> */}
         <Footer />
