@@ -19,6 +19,8 @@ import ValueImg from "@/assets/values.png"
 import MissionImg from "@/assets/mission.png"
 import VisionImg from "@/assets/vision.png"
 import Hero from "@/components/Hero";
+import People from "@/components/People";
+
 
 
 export default function Home({ cms, products }: { cms: ICms, products: IProduct[] }) {
@@ -338,28 +340,7 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
             </div>
           </div>
         </section>
-        {/* <section className="pb-20 text-center section">
-          <div className="flex flex-col items-center max-w-3xl gap-4 mx-auto text-center">
-            <h3 className="mb-3 text-3xl font-extrabold capitalize md:text-5xl">Our <br /> People</h3>
-            <p>Meet the visionary leaders who drive Eraskon Nigeria Limited towards excellence and innovation:</p>
-          </div>
-          <div className="flex flex-col gap-10 pt-12 md:gap-16">
-              <div className="flex flex-col gap-4 lg:gap-12 md:items-center lg:flex-row">
-                <div className='flex flex-col gap-4 items-center justify-center text-center lg:text-left lg:items-start flex-[1_1_0%]'>
-                <Image width={100} height={100} alt='' src={VisionImg} className="object-cover mx-auto rounded-full h-44 w-44 md:w-48 md:h-48 md:rounded-none md:mx-0 bg-black/10" />
-                  <div>
-                  <h4 className="text-xl font-bold">{'My name'}</h4>
-                      <span className="text-sm font-extrabold text-primary">{'Ambass'}</span>
-                  </div>
-                </div> 
-                <div className='text-[#6D6D6D] font-argentinum text-sm md:text-base md:text-left flex-[3_1_0%]'>
-                  <p className='text-sm md:text-base'>{'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget augue nec massa volutpat aliquam fringilla non.'}</p>
-                </div>    
-              </div>
-        </div>
-      </section> */}
-
-        {/* <Advisory advisory={advisory} /> */}
+        <People />
         <Footer />
       </div>
     </div>

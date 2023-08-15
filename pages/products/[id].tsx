@@ -240,7 +240,7 @@ const Product = () => {
       </main>
       <div className="fixed z-10 flex items-center justify-center text-green-500 bottom-4 right-4">
         <a target='_blank' className='flex items-center gap-3 p-2 px-3 border rounded-lg' href={`https://wa.me/2348037513298`}>
-          <AiOutlineWhatsApp className='text-3xl' />
+          <AiOutlineWhatsApp className='text-4xl md:text-5xl' />
           {/* Whatsapp */}
         </a>
       </div>
