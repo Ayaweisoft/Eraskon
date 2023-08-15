@@ -359,6 +359,7 @@ export const getServerSideProps = async () => {
     const response = await ProductModel.find({}).lean();
     products = JSON.parse(JSON.stringify(response))
 
+
     // console.log({news_res})
     // news = JSON.parse(JSON.stringify(news_res))
 
