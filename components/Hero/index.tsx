@@ -87,7 +87,7 @@ const Hero = () => {
           
       {carouselData.map((item, index) => (
           <div key={index} ref={carouselRef} className="box-border absolute top-0 left-0 z-0 w-full h-full">
-            <div ref={(el: HTMLDivElement) => (carouselInnerRef.current[index] = el)} className="box-border absolute top-0 left-0 w-full h-full carousel-item active">
+            <div ref={(el: HTMLDivElement) => (carouselInnerRef.current[index] = el)} className={`box-border absolute top-0 left-0 w-full h-full carousel-item ${index===0 && "active"}`}>
               <>
                 {
                   !item.heroImg ?  (
