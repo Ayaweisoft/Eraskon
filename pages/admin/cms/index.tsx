@@ -162,7 +162,7 @@ const EditCms = () => {
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="text" className="text-black/70">Text</label>
-                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whoWeAre', payload: { ...cms.whoWeAre, text: e.target.value } })} value={cms?.whoWeAre?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
+                            <textarea minLength={200} maxLength={700} rows={3} required onChange={(e) => dispatch({ type: 'whoWeAre', payload: { ...cms.whoWeAre, text: e.target.value } })} value={cms?.whoWeAre?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex items-center gap-4">
                             <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Update</Button>
@@ -183,7 +183,7 @@ const EditCms = () => {
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="text" className="text-black/70">Text</label>
-                            <textarea minLength={200} maxLength={450} rows={3} required onChange={(e) => dispatch({ type: 'whatWeDo', payload: { ...cms.whatWeDo, text: e.target.value } })} value={cms?.whatWeDo?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
+                            <textarea minLength={200} maxLength={700} rows={3} required onChange={(e) => dispatch({ type: 'whatWeDo', payload: { ...cms.whatWeDo, text: e.target.value } })} value={cms?.whatWeDo?.text} name="text" id="text" className="p-2 border rounded-md border-black/20" />
                         </div>
                         <div className="flex items-center gap-4">
                             <Button type='submit' className="px-4 py-2 text-sm text-white sm:px-6 rounded-xl">Update</Button>

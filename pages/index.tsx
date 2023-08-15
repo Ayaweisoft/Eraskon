@@ -13,6 +13,8 @@ import dbConnect from '@/lib/dbConnection';
 import CmsModel from '@/models/CmsModel';
 import ProductModel from '@/models/ProductModel';
 import { useRouter } from "next/router";
+import WeAreImg from "@/assets/weare.png"
+import WeDoImg from "@/assets/wedo.png"
 import ValueImg from "@/assets/values.png"
 import MissionImg from "@/assets/mission.png"
 import VisionImg from "@/assets/vision.png"
@@ -205,11 +207,11 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
           <div className="flex flex-col gap-6 md:gap-10 md:gap-12">
             <div className="flex flex-col justify-center gap-4 h-fit lg:flex-row md:gap-12">
               <div className="flex flex-col flex-1 gap-4 overflow-hidden max-h-[400px] ">
-                <img src={cms?.whoWeAre?.image} alt="image" className="object-cover w-full h-full" />
+                <Image src={cms?.whoWeAre?.image || WeAreImg} width={100} height={100} alt="image" className="object-cover w-full h-full" />
               </div>
               <div className="flex flex-col items-center justify-center flex-1 gap-4 lg:items-start w-fit">
                 <h2 className="mb-3 text-2xl font-extrabold md:text-3xl w-fit text-blue">Who We Are</h2>
-                <p className="mb-4 text-center md:text-lg lg:text-left">{cms?.whoWeAre?.text || "Eraskon Nigeria Limited (ENL) is an indigenous Security and Logistics services provider in the Oil & Gas and Marine sectors of the Nigerian economy with the vision of delivering top rated security services as required by clients while optimizing client’s profit and minimizing operational cost."}</p>
+                <p className="mb-4 text-center md:text-lg lg:text-left">{cms?.whoWeAre?.text || "Eraskon Nigeria Limited is a Nigerian integrated lubricants, chemicals, plastics and packaging company. We are a subsidiary of Eraskorp Nigeria Limited, an energy and infrastructure conglomerate established in July of 2004. We restructured and secured investment from the Nigerian Content Development and Monitoring Board (NCDMB) to support our ambition of becoming a petroleum lubricants manufacturer."}</p>
               </div>
             </div>
           </div>
@@ -217,11 +219,11 @@ export default function Home({ cms, products }: { cms: ICms, products: IProduct[
         <section className="relative flex flex-col gap-3 pt-16 pb-20 overflow-hidden text-white section md:pt-28 grad-to-right">
         <div className="flex flex-col justify-center gap-4 lg:flex-row md:gap-12">
               <div className="flex flex-col flex-1 gap-4 overflow-hidden max-h-[400px] lg:order-2 ">
-                <img src={cms?.whatWeDo?.image} alt="image" className="object-cover w-full h-full" />
+                <Image src={cms?.whatWeDo?.image || WeDoImg} width={100} height={100} alt="image" className="object-cover w-full h-full" />
               </div>
               <div className="flex flex-col items-end justify-center flex-1 gap-4 lg:items-end w-fit">
                 <h2 className="w-full mb-3 text-2xl font-extrabold text-center capitalize md:text-3xl lg:text-right text-]">What We Do</h2>
-                <p className="mb-4 text-center md:text-lg lg:text-right">{cms?.whatWeDo?.text || "Eraskon Nigeria Limited (ENL) Offers a wide range of services to manage all forms of security threats, such as early warning systems/inteligence gathering, vulerability accessments, wtc. Eraskon Nigeria Limited (ENL) is duly licensed by the Department of Petroleum Resources (DPR) and the Nigeria Security & Civil Defence COrp (NSCDC) to provide security services. ENL is a corporate member of the Nigerian Institute for Industrial Security (NIIS)"}</p>
+                <p className="mb-4 text-center md:text-lg lg:text-right">{cms?.whatWeDo?.text || "Eraskon offers three core services namely; 1. Lubricants-high quality lubricating oils and speciality products such as waxes 2. Chemicals-engine coolants, aerosols, production chemicals and bio-degradable products. 3. Plastics & packaging-plastic containers for engine oils, homecare products, and packaging of finished lubricants."}</p>
               </div>
             </div>
         </section>
